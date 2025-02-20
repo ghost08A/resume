@@ -1,96 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>Voramate Phothong</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
   <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-section border-0">
+        <nav class="navbar navbar-light">
+            <div class="navbar-nav flex-column">
+                <a href="#Home" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
+                <a href="#Education" class="nav-item nav-link"><span class="fa fa-book"></span> Education</a>
+                <a href="#Experience" class="nav-item nav-link"><span class="fa fa-cogs"></span> Experience</a>
+                <a href="#Skills" class="nav-item nav-link"><span class="fas fa-laptop-code"></span> Skills</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Header Start -->
+    <div class="container-fluid" id="Home">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-12 col-lg-3">
+                    <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
+                        <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
+                        </a>
+                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
+                            data-wow-delay="0.3s">
+                            <p class="text-white sub-title">👋 Hello I'm Voramate</p>
+                            <h1 class="display-6 text-white mb-0">Computer Science, KMUTNB since 2022</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
+                        <div class="row g-5">
+                            <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
+                                    <img src="img/voramate.jpg" class="img-fluid w-100"
+                                        style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h1 class="display-6 mb-4">Back End Developer</h1>
+                                <p class="mb-4">HI am a Computer Science student and a beginner in website and backend
+                                    development. In my learning journey, I have developed my backend skills through
+                                    self-study.
+                                </p>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                                    <p class="text-dark mb-0">223 Jintana Wonsawang 11 Alley,Wonsawang Road Wonsawang
+                                        Subdistrict,Bang Sue District Bangkok 10800, Thailand</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-envelope text-primary me-3"></i>
+                                    <p class="text-dark mb-0">arm1532arm@gmail.com/p>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fa fa-phone-alt text-primary me-3"></i>
+                                    <p class="text-dark mb-0">065-538-9857</p>
+                                </div>
+                                <div class="d-flex align-items-center mb-4">
+                                    <i class="fab fa-github text-primary me-3"></i>
+                                    <p class="text-dark mb-0">ghost08A</p>
+                                </div>
+                                <div class="d-flex">
+                                    <a class="btn btn-primary btn-sm-square me-3"
+                                        href="https://www.facebook.com/vormate.phothong?locale=th_TH"><i
+                                            class="fab fa-facebook-f text-white"></i></a>
+                                    <a class="btn btn-primary btn-sm-square me-3" href="https://github.com/ghost08A"><i
+                                            class="fab fa-github text-white"></i></a>
+                                    <a class="btn btn-primary btn-sm-square me-3"
+                                        href="https://www.instagram.com/voramate_/"><i
+                                            class="fab fa-instagram text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Education Start -->
+    <div class="container-fluid" id="Education">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-3">
+                    <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
+                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
+                            data-wow-delay="0.1s">
+                            <p class="text-white sub-title">Education</p>
+                            <h1 class="display-6 text-white mb-0">My education qualification</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="education-content h-100 pt-6 ps-6 pb-6">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <!-- <p class="fs-5 mb-0 me-4">Huahin SCHOOL</p> -->
+                                        <div>
+                                            <span class="fa fa-calendar me-1"></span> 2016 - 2019
+                                        </div>
+                                    </div>
+                                    <h4 class="mb-3">Huahin School</h4>
+                                    <p class="mb-0">Hua Hin School is a well-established educational institution located
+                                        in Hua Hin, a coastal town in Prachuap Khiri Khan province, Thailand. The school
+                                        provides quality education for students at various levels, focusing on both
+                                        academic excellence and character development. It offers a well-rounded
+                                        curriculum that includes core subjects, extracurricular activities, and modern
+                                        teaching methods to ensure students receive a comprehensive education. With
+                                        experienced teachers and a supportive learning environment, Hua Hin School aims
+                                        to nurture students' knowledge, skills, and values to prepare them for future
+                                        success.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div>
+                                            <span class="fa fa-calendar me-1"></span> 2019 - 2022
+                                        </div>
+                                    </div>
+                                    <h4 class="mb-3">Wangklaikangwon Industrial and Community Education Collegen</h4>
+                                    <p class="mb-0">Wangklaikangwon Industrial and Community Education College is a
+                                        leading vocational institution in Hua Hin, Thailand, recognized for its
+                                        excellence in technology and technical education. The college focuses on
+                                        equipping students with practical skills and hands-on experience in various
+                                        technological fields, including electronics, automation, information technology,
+                                        and digital innovation.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div>
+                                            <span class="fa fa-calendar me-1"></span> 2022 - Present
+                                        </div>
+                                    </div>
+                                    <h4 class="mb-3">king mongkut's university of technology north bangkok</h4>
+                                    <p class="mb-0">King Mongkut's University of Technology North Bangkok, generally
+                                        abbreviated as KMUTNB, is a renowned public higher education intuition in
+                                        Thailand. With a focus on engineering and applied sciences, the university
+                                        strives to encourage innovation in science and its application in industry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Education End -->
+
+    <!-- Experience Start -->
+    <div class="container-fluid" id="Experience">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-3">
+                    <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
+                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
+                            data-wow-delay="0.1s">
+                            <p class="text-white sub-title">Experience</p>
+                            <h1 class="display-6 text-white mb-0">My project experience</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="experience-content h-100 pt-6 ps-6 pb-6">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div>
+                                            <span class="fa fa-calendar me-1"></span> 2024
+                                        </div>
+                                    </div>
+                                    <h4 class="mb-3">Website buy game and rent game</h4>
+                                    <p class="mb-0">I worked on the backend for a game rental and purchase project. The
+                                        system had features like buying, renting, liking games, adding games to the
+                                        cart, and promotions. My main tasks were building these features, managing the
+                                        database, and making sure the website was easy to use and met user needs.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="d-flex align-items-center mb-3">
+
+                                        <div>
+                                            <span class="fa fa-calendar me-1"></span> 2025
+                                        </div>
+                                    </div>
+                                    <h4 class="mb-3">App delivery</h4>
+                                    <p class="mb-0">I developed a food ordering app project, designed to be as simple
+                                        and visually appealing as possible. The main features include ordering, adding
+                                        food to the cart, promotions, and payment. This project was primarily built
+                                        using Flutter.
+
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Exparience End -->
+
+
+    <!-- Skills Start -->
+    <div class="container-fluid" id="'Skills">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-3">
+                    <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
+                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
+                            data-wow-delay="0.1s">
+                            <p class="text-white sub-title">Skills</p>
+                            <h1 class="display-6 text-white mb-0">My expertise skills</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="skills-content h-100 pt-6 ps-6 pb-6">
+                        <div class="row g-4">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
+                                    data-wow-delay="0.1s">
+                                    <div class="text-primary text-center mb-3"><span
+                                            class="fab fa-node-js fa-3x"></span></div>
+                                    <h4 class="mb-0">Node.js</h4>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
+                                    data-wow-delay="0.1s">
+                                    <div class="text-primary text-center mb-3">
+                                        <img src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-IndigoSymbol.svg"
+                                            alt="Prisma Logo" width="50">
+                                    </div>
+                                    <h4 class="mb-0">Prisma</h4>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
+                                    data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
+                                            alt="PostgreSQL Logo" width="50">
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">PostgreSQL</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <span class="fab fa-react fa-3x"></span>
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">React</h4> 
+                                </div>
+                            </div>
+                            
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
+                                    data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <img src="img\flutter.svg"
+                                            alt="Flutter Logo" width="50">
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">Flutter</h4>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C++ Logo" width="50">
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">C++</h4> 
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <span class="fab fa-php fa-3x"></span>
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">PHP</h4> 
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Logo" width="50">
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">Java</h4> 
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <span class="fab fa-python fa-3x"></span>
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">Python</h4> 
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="text-primary text-center mb-3">
+                                        <span class="fab fa-js fa-3x"></span>
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center"></div>
+                                    <h4 class="mb-0">JavaScript</h4> 
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
+                                    data-wow-delay="0.3s">
+                                    <div class="text-primary text-center mb-3"><span class="fab fa-html5 fa-3x"></span>
+                                    </div>
+                                    <div class="counter-counting d-flex justify-content-center">
+                                    </div>
+                                    <h4 class="mb-0">HTML & CSS</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Skills End -->
+
+
+   
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-dark border-bottom-0">
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="row g-0">
+                <div class="col-12">
+                    <div class="footer-content h-100 pt-6 ps-6 pb-6">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 text-center">
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn btn-primary btn-sm-square me-3"
+                                    href="https://www.facebook.com/vormate.phothong?locale=th_TH"><i
+                                        class="fab fa-facebook-f text-white"></i></a>
+                                <a class="btn btn-primary btn-sm-square me-3" href="https://github.com/ghost08A"><i
+                                        class="fab fa-github text-white"></i></a>
+                                <a class="btn btn-primary btn-sm-square me-3"
+                                    href="https://www.instagram.com/voramate_/"><i
+                                        class="fab fa-instagram text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <span class="text-body"><i
+                                    class="fas fa-copyright text-body me-2"></i>Copyright
+                                    <a href="https://github.com/ghost08A" class="border-bottom text-white">ghost08A</a>, All right
+                                    reserved.</span>
+                            </div>
+                            <div class="col-12 text-center text-body">
+                                <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                                <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                                <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                                Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML
+                                    Codex</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
   </body>
 </html>
